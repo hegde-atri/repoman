@@ -5,8 +5,9 @@ A simple tool to manage a directory with git repositories.
 
 This project is still in the planning phase!
 
-* Planning
-** CLI args
-- directory <optional>
-- depth <optional>
-- name?, status of a particular repo
+* Contributing
+
+Make sure to stick to the general code of conduct :).
+
+Feel free to open a pull request with improvements or features. Include a full description of feature/improvement you are bringing, the things you've changed, why you brought this change.
+

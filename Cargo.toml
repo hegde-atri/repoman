@@ -1,6 +1,6 @@
 [package]
 name = "repo"
-authors = ["Atri Hegde (https://github.com/hegde-atri)"]
+authors = ["Atri Hegde <https://github.com/hegde-atri>"]
 description = "A tool to manage your home of repositories"
 version = "0.0.1"
 edition = "2021"
