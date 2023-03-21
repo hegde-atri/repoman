@@ -5,6 +5,6 @@ pub fn get_repos() -> Vec<PathBuf> {
     todo!();
 }
 
-fn get_repo_status() {
+fn get_status() {
     todo!();
 }
