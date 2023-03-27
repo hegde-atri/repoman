@@ -1,22 +1,14 @@
-use std::process::Command;
+use std::{
+    io,
+    io::Error,
+    io::Write,
+    process::{Command, Output},
+};
 
-macro_rules! unwrap_to_bool {
-    ($e: expr) => {
-        match $e {
-            Ok(x) => return true,
-            Err(x) => {
-                println!("Failed to execute command: {}", x);
-                return false;
-            }
-        }
-    };
-}
-
-pub fn exec(cmd: &str) {
-    // TODO
+pub fn exec(cmd: &str) -> Result<Output, Error> {
     if cfg!(target_os = "windows") {
-        Command::new("cmd").args(["/C", cmd]).output()
+        return Command::new("cmd").args(["/C", cmd]).output();
     } else {
-        Command::new("sh").arg("-c").arg(cmd).output()
+        return Command::new("sh").arg("-c").arg(cmd).output();
     };
 }

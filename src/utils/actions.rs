@@ -1,4 +1,6 @@
-pub fn git_status() {
+use std::path::PathBuf;
+
+pub fn git_status(path: PathBuf) {
     todo!();
 }
 
