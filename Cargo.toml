@@ -1,13 +1,21 @@
 [package]
 name = "repo"
-authors = ["Atri Hegde <https://github.com/hegde-atri>"]
-description = "A tool to manage your home of repositories"
 version = "0.0.1"
 edition = "2021"
+authors = ["Atri Hegde <atri@hegdeatri.com>"]
+licence = "AGPL-v3"
+licence-file = "LICENCE"
+readme = "README.org"
+description = "A tool to manage your home of repositories"
+homepage = "https://github.com/hegde-atri/repo"
+repository = "https://github.com/hegde-atri/repo"
+keywords = ["cli", "repo", "repository management"]
+categories = ["command-line-utilities"]
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
+ansi_term = "0.12.1"
 clap = { version = "4.1.11", features = ["derive"] }
 thiserror = "1.0.38"
 which = "4.4.0"
