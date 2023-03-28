@@ -3,7 +3,7 @@
 
 A simple tool to manage a directory with git repositories.
 
-This project is still in the planning phase!
+(It is in its very early stages.)
 
 * Contributing
 

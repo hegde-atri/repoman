@@ -3,13 +3,12 @@ name = "repo"
 version = "0.0.1"
 edition = "2021"
 authors = ["Atri Hegde <atri@hegdeatri.com>"]
-license = "AGPL-v3"
-license-file = "LICENCE"
+license = "AGPL-3.0"
 readme = "README.org"
 description = "A tool to manage your home of repositories"
 homepage = "https://github.com/hegde-atri/repo"
 repository = "https://github.com/hegde-atri/repo"
-keywords = ["cli", "repo", "repository management"]
+keywords = ["cli", "repo", "utility", "git"]
 categories = ["command-line-utilities"]
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
