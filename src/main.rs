@@ -5,11 +5,22 @@ mod utils;
 
 use args::RepoArgs;
 use clap::Parser;
+use std::{
+    io::{self, Write},
+    path::Path,
+};
 
-use crate::utils::command;
+use crate::utils::{actions, command};
 
 fn main() {
     let args = RepoArgs::parse();
-    println!("{:?}", args);
-    command::exec("ls");
+    println!("{:?}\n", args);
+
+    let mut path = Path::new("/home/mizuuu/repos/personal/rust/repo");
+    actions::git_status(Some(path));
+
+    // match command::exec("ex", Some("--icons"), path) {
+    //     Ok(v) => io::stdout().write_all(&v.stdout).unwrap(),
+    //     Err(err) => println!("Error: {}", err),
+    // };
 }

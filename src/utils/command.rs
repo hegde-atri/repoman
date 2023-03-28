@@ -1,5 +1,5 @@
 use std::{
-    io::{Error, ErrorKind},
+    io::{Error, ErrorKind, Write},
     path::Path,
     process::{Command, Output},
 };
@@ -17,16 +17,15 @@ use which::which;
 /// # Arguments
 ///
 /// * `cmd` - The binary to execute.
-/// * `args` - Optional to include arguments.
 /// * `cwd` - The directory to execute in.
 ///
 /// # Examples
 /// ```
-/// exec("git", Some("status"), Path::new("/home/user/repo"))
+/// exec("git status", Path::new("/home/user/repo"))
 /// ```
-pub fn exec(cmd: &str, args: Option<&str>, cwd: &Path) -> Result<Output, Error> {
+pub fn exec(cmd: &str, cwd: &Path) -> Result<Output, Error> {
     // Check if binary for command exists
-    match which(cmd) {
+    match which(cmd.split(' ').next().unwrap()) {
         Ok(_) => (),
         Err(_) => {
             return Err(Error::new(
@@ -37,24 +36,26 @@ pub fn exec(cmd: &str, args: Option<&str>, cwd: &Path) -> Result<Output, Error> 
     }
     // Check if path exists
     if !cwd.exists() {
-        return Err(Error::new(
-            ErrorKind::Other,
-            "Specified directory is invalid!",
-        ));
+        return Err(Error::new(ErrorKind::Other, "Specified path is invalid!"));
+        // path is not a directory
+        if !cwd.is_dir() {
+            return Err(Error::new(
+                ErrorKind::Other,
+                "Specified path is not a directory",
+            ));
+        }
     }
     // Now execute the command
     if cfg!(target_os = "windows") {
         return Command::new("cmd")
             .current_dir(&cwd.as_os_str())
             .args(["/C", cmd])
-            .arg(args.unwrap_or(""))
             .output();
     } else {
         return Command::new("sh")
             .current_dir(&cwd.as_os_str())
             .arg("-c")
             .arg(cmd)
-            .arg(args.unwrap_or(""))
             .output();
     };
 }
