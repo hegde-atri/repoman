@@ -1,5 +1,5 @@
 [package]
-name = "repo"
+name = "repoman"
 version = "0.0.1"
 edition = "2021"
 authors = ["Atri Hegde <atri@hegdeatri.com>"]
@@ -16,7 +16,6 @@ categories = ["command-line-utilities"]
 [dependencies]
 ansi_term = "0.12.1"
 clap = { version = "4.1.11", features = ["derive"] }
-thiserror = "1.0.38"
 which = "4.4.0"
 
 [dev-dependencies]

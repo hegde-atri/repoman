@@ -1,9 +1,16 @@
 #+title: repo
 #+author: Atri Hegde
 
-A simple tool to manage a directory with git repositories.
+A simple tool to manage a your local git repositories.
 
-(It is in its very early stages.)
+#+begin_quote
+This project is still in its early stages and is unusable
+#+end_quote
+
+* Installing
+I wanted to try publishing my first crate to https://crates.io but noticed that there is already a project called ~repo~ that is completely unrelated with a very unfriendly owner.
+So I renamed my project to ~repom~ standing for repo-manager. But feel free to move the binary to your =~/.local/bin= as repo.
+
 
 * Contributing
 
