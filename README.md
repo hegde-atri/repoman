@@ -1,4 +1,15 @@
 # repo (repoman)
+
+[![Project Status: Concept – Minimal or no implementation has been done yet, or the repository is only intended to be a limited example, demo, or proof-of-concept.](https://www.repostatus.org/badges/latest/concept.svg)](https://www.repostatus.org/#concept)
+
+[![Licence](https://img.shields.io/github/license/hegde-atri/repo)](https://github.com/hegde-atri/repo/blob/main/LICENCE)
+
+[![Version](https://img.shields.io/crates/v/repoman?color=brightgreen)](https:://crates.io/repoman)
+
+[![Stars](https://img.shields.io/github/stars/hegde-atri/repo?style=social)](https://github.com/hegde-atri/repo)
+
+[![Downloads](https://img.shields.io/crates/d/repoman)](https://crates.io/repoman)
+
 A simple tool to manage a your local git repositories.
 
 > This project is still in its early stages and is unusable.
