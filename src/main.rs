@@ -10,7 +10,7 @@ use std::{
     path::Path,
 };
 
-use crate::utils::{actions, command};
+use crate::utils::{actions, command, dirs};
 
 fn main() {
     let args = RepoArgs::parse();
@@ -18,6 +18,7 @@ fn main() {
 
     let mut path = Path::new("/home/mizuuu/repos/personal/rust/repo");
     actions::git_status(Some(path));
+    dirs::get_repos(Some(path));
 
     // match command::exec("ex", Some("--icons"), path) {
     //     Ok(v) => io::stdout().write_all(&v.stdout).unwrap(),
