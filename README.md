@@ -1,20 +1,17 @@
 # repo (repoman) [![Stars](https://img.shields.io/github/stars/hegde-atri/repo?style=social)](https://github.com/hegde-atri/repo)
 
 [![Project Status: Concept – Minimal or no implementation has been done yet, or the repository is only intended to be a limited example, demo, or proof-of-concept.](https://www.repostatus.org/badges/latest/concept.svg)](https://www.repostatus.org/#concept)
-[![Licence](https://img.shields.io/github/license/hegde-atri/repo?color=red)](https://github.com/hegde-atri/repo/blob/main/LICENCE)
-[![Version](https://img.shields.io/crates/v/repoman?color=9cf)](https:://crates.io/repoman)
-[![Downloads](https://img.shields.io/crates/d/repoman)](https://crates.io/repoman)
+[![Licence](https://img.shields.io/github/license/hegde-atri/repoman?color=red)](https://github.com/hegde-atri/repoman/blob/main/LICENCE)
+[![Version](https://img.shields.io/crates/v/repoman?color=9cf)](https:://crates.io/crates/repoman/versions)
+[![Downloads](https://img.shields.io/crates/d/repoman)](https://crates.io/crates/repoman)
 
 A simple tool to manage a your local git repositories.
 
-> This project is still in its early stages and is unusable.
-
 # Installing
 
-I wanted to try publishing my first crate to https://crates.io but noticed that there is already a project called `repo` that is completely unrelated with a very unfriendly owner.
-So I renamed my project to `repoman` standing for repo-manager. But feel free to move the binary to your `~/.local/bin` as repo.
-
 You can install it with `cargo install repoman`
+
+> You can move this to your `~/.local/bin` as `repo` for convenience.
 
 
 # Contributing
