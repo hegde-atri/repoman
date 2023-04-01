@@ -30,16 +30,3 @@ pub fn git_status(p: Option<&Path>) {
         println!("{}", Colour::Red.bold().paint("Not a git directory"));
     }
 }
-
-/// Checks if provided path contains a git repository
-fn is_git(path: &Path) -> bool {
-    todo!();
-}
-
-/// Attempts to get the current working directory as a PathBuf
-fn get_pwd() -> PathBuf {
-    return match std::env::current_dir() {
-        Ok(v) => PathBuf::from(v),
-        Err(err) => panic!("Couldn't find current dir: {}", err),
-    };
-}

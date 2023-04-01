@@ -16,8 +16,8 @@ fn main() {
     let args = RepoArgs::parse();
     println!("{:?}\n", args);
 
-    let mut path = Path::new("/home/mizuuu/repos/personal/rust/repo");
-    actions::git_status(Some(path));
+    let mut path = Path::new("/home/mizuuu/repos/personal/rust/repoman");
+    actions::status::git_status(Some(path));
     dirs::get_repos(Some(path));
 
     // match command::exec("ex", Some("--icons"), path) {
