@@ -6,14 +6,14 @@ pub fn is_repo(dir: &Path) -> bool {
 }
 
 /// Returns a Pathbuf of current working dir or the dir if provided.
-pub fn get_pwd(dir: Option<&Path>) -> PathBuf {
-    let pwd = match std::env::current_dir() {
+pub fn get_cwd(dir: Option<&Path>) -> PathBuf {
+    let cwd = match std::env::current_dir() {
         Ok(v) => PathBuf::from(v),
         Err(err) => panic!("Couldn't find current dir: {}", err),
     };
 
     return match dir {
         Some(v) => v.to_path_buf(),
-        None => pwd,
+        None => cwd,
     };
 }

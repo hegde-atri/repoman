@@ -16,7 +16,7 @@ use std::{
 /// * `p` - An `Option<&Path>` to run the command `git status` in
 pub fn git_status(p: Option<&Path>) {
     // decide the path
-    let path = common::get_pwd(p);
+    let path = common::get_cwd(p);
 
     if common::is_repo(path.as_path()) {
         // print the status with path red and bold.
