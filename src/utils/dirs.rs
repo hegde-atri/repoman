@@ -5,6 +5,10 @@ pub async fn find_git_repos(dir: PathBuf) -> Pin<Box<dyn Future<Output = Vec<Pat
     Box::pin(async {
         let mut repos = Vec::new();
 
+        if dir.join(".git").is_dir() {
+            repos.push(dir.clone());
+        }
+
         if let Ok(mut entries) = fs::read_dir(dir).await {
             while let Ok(Some(entry)) = entries.next_entry().await {
                 let path = entry.path();
