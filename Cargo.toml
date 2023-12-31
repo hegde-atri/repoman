@@ -16,7 +16,7 @@ categories = ["command-line-utilities"]
 [dependencies]
 ansi_term = "0.12.1"
 clap = { version = "4.1.11", features = ["derive"] }
+futures = "0.3.30"
+ha-utils = "0.0.1"
+tokio = { version = "1.35.1", features = ["full"] }
 which = "4.4.0"
-
-[dev-dependencies]
-anyhow = "1"

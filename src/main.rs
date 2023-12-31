@@ -1,27 +1,39 @@
-#![allow(unused)]
+use std::path::PathBuf;
+
+use args::RepoArgs;
+use clap::Parser;
+use ha_utils::cmd::get_pwd;
+use utils::{dirs, actions::status::git_status_oneline};
 
 mod args;
 mod utils;
 
-use args::RepoArgs;
-use clap::Parser;
-use std::{
-    io::{self, Write},
-    path::Path,
-};
-
-use crate::utils::{actions, command, dirs};
-
-fn main() {
+#[tokio::main]
+async fn main() {
     let args = RepoArgs::parse();
+
     println!("{:?}\n", args);
 
-    let mut path = Path::new("/home/mizuuu/repos/personal/rust/repoman");
-    actions::status::git_status(Some(path));
-    dirs::get_repos(Some(path));
 
-    // match command::exec("ex", Some("--icons"), path) {
-    //     Ok(v) => io::stdout().write_all(&v.stdout).unwrap(),
-    //     Err(err) => println!("Error: {}", err),
-    // };
+    let dir = if let Some(dir_string) = args.dir {
+        PathBuf::from(dir_string)
+    } else {
+        get_pwd(None)
+    };
+
+    match args.action {
+        Some(args::Action::Test) => {
+            println!("Test");
+        }
+        None => default_action(dir).await
+    }
+
+
+}
+
+async fn default_action(dir: PathBuf) {
+    let repos = dirs::find_git_repos(dir).await.await;
+    for repo in repos {
+        git_status_oneline(Some(&repo));
+    }
 }
