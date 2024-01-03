@@ -24,6 +24,18 @@ jobs:
       # : startsWith(github.ref, 'refs/tags/')
       run: |
         mv ./target/debug/repoman ./repoman
+    - name: Set ref name
+      id: ref
+      run: echo "::set-output name=ref::$(echo ${GITHUB_REF#refs/*/})"
+    - name: Create release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.WORKFLOW_SECRET}}
+      with:
+        tag_name: ${{ steps.ref.outputs.ref }}
+        release_name: Release ${{ steps.ref.outputs.ref }}
+        draft: false
+        prerelease: false
     - name: Create release
       # : startsWith(github.ref, 'refs/tags/')
       uses: actions/create-release@v1
