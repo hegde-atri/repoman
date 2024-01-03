@@ -27,8 +27,6 @@ async fn main() {
         }
         None => default_action(dir).await
     }
-
-
 }
 
 async fn default_action(dir: PathBuf) {
