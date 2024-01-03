@@ -17,10 +17,15 @@ pub fn git_status_oneline(p: Option<&Path>) {
 
     if is_repo(path.as_path()) {
         // print the status with path red and bold.
+        print!(
+            "{} ",
+            Colour::Cyan.paint(get_branch(&path.as_path()))
+        );
+        for symbol in get_status_symbols(&path.as_path()) {
+            print!("{}", symbol.to_string());
+        }
         println!(
-            "{} {:?} - {}",
-            Colour::Cyan.paint(get_branch(&path.as_path())),
-            get_status_symbols(&path.as_path()),
+            " - {}",
             Colour::dimmed(Colour::White).paint(path.to_str().unwrap()) //ets
         );
         get_status_symbols(&path.as_path());
@@ -29,7 +34,7 @@ pub fn git_status_oneline(p: Option<&Path>) {
     }
 }
 
-fn get_status_symbols(path: &Path) -> Vec<&ANSIGenericString<str>> {
+fn get_status_symbols(path: &Path) -> Vec<String> {
     let mut cmd = Command::new("git");
     cmd.arg("status");
     cmd.arg("-s");
@@ -37,20 +42,21 @@ fn get_status_symbols(path: &Path) -> Vec<&ANSIGenericString<str>> {
     let output = cmd.output().expect("failed to execute process");
     let mut symbols = Vec::new();
     if output.status.success() {
-        let output = String::from_utf8(output.stdout).unwrap().as_str();
+        let output = String::from_utf8(output.stdout).unwrap();
         let lines = output.lines();
         for line in lines {
             // trim the line
             let line = line.trim();
             // get the first character
             let status = &line[0..1];
+            // symbols.push(status.to_string());
             // get its symbol
-            let symbol = get_symbol(status);
+             let symbol = get_symbol(status);
             // append to final
-            symbols.push(&symbol);
+             symbols.push(symbol.to_string());
         }
     }
-    symbols
+    return symbols;
 }
 
 fn get_symbol(status: &str) -> ANSIGenericString<str> {
